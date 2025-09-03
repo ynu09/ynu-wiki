@@ -10,3 +10,4 @@ nav:
   - 홈: index.md
   - Ubuntu: 
     - Virtual Box 세팅: ubuntu/virtual_box.md
+    - Ubuntu 세팅: ubuntu/setting.md

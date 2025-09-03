@@ -7,7 +7,7 @@
 
 ### 카테고리 
 
-- Ubuntu
+- Ubuntu(Virtual Box)
 - 나만의 웹사이트 제작
 
 ---

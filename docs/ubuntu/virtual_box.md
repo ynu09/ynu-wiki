@@ -30,8 +30,8 @@
 
 ### 참고 사이트
 [1] [Virtual Box 에 Ubuntu 20.04 LTS 설치하기](https://truelifer.medium.com/virtual-box-%EC%97%90-ubuntu-20-04-lts-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-71ab044eb4f8)  
-[2] [Oracle VM VirtualBox에 Ubuntu 22.04 LTS 설치하기](https://powerdeng.tistory.com/254)
-[3] 
+[2] [Oracle VM VirtualBox에 Ubuntu 22.04 LTS 설치하기](https://powerdeng.tistory.com/254)  
+[3] [[Virtualbox] 화면 크기 조절](https://changun516.tistory.com/144)
 
 1. '새로 만들기(N)'를 클릭합니다.
 2. 가상환경 이름을 지어주고, OS, OS Distribution, OS Version이 사진과 같이 설정됐는지 체크합니다.  
@@ -55,4 +55,4 @@
 
         이후 가상화면 접속 후, '보기-가상화면1’에서 크기 조정 가능합니다.  
 
-5. Oracle VM VirtualBox에서 시작 버튼을 클릭하여 Ubuntu를 설치합니다.
+5. Oracle VM VirtualBox에서 '시작' 버튼을 클릭하여 Ubuntu를 설치합니다.
