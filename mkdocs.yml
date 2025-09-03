@@ -4,7 +4,7 @@ theme:
   name: material
   palette:
     primary: 'brown'
-  logo: 'images/me.jpg' # 로고 이미지 경로
+  logo: 'images/24.jpg' # 로고 이미지 경로
 
 nav:
   - 홈: index.md
