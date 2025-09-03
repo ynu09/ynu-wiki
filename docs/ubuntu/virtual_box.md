@@ -38,4 +38,4 @@
     ⚠️ <span style="color: red;">가상환경 이름 작성 시, 빈칸이 없도록 합니다!</span>
 
 
-    <img src="/ynu-wiki/images/ubuntu/install-1.png" alt="VB-Ubuntu1" width="200"/>
+    <img src="/ynu-wiki/images/ubuntu/install-1.png" alt="VB-Ubuntu1" width="400"/>
