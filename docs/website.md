@@ -27,6 +27,8 @@
 
 ```$ mkdocs serve```
 
+<img src="/ynu-wiki/images/website/serve.png" width="800"/>
+
 페이지 수정사항을 실시간으로 확인할 수 있습니다.
 
 ## <h2 style="font-weight: 900;">2️⃣GitHub 저장소 생성</h2>
