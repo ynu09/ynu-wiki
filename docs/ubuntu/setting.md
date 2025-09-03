@@ -1,9 +1,9 @@
 # Ubuntu 세팅
 
-### 참고 사이트
-[1] [[Ubuntu 20.04] 우분투 한글입력 방법 (한글키 호환)](https://freeablelab.tistory.com/138) 
-
 ## <h2 style="font-weight: 900;">1️⃣한글키 입력 활성화</h2>
+
+### 참고 사이트
+[[Ubuntu 20.04] 우분투 한글입력 방법 (한글키 호환)](https://freeablelab.tistory.com/138) 
 
 1. 다음 명령어를 입력하여 업그레이드 및 재부팅합니다.
 

@@ -352,6 +352,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣필요한 패키지 설치
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -412,6 +421,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣필요한 패키지 설치
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -447,6 +465,57 @@ $ reboot
 <p>'한국어(Hangul)' 옆에 톱니바퀴를 눌러서 한영전환키에 '한영키(Alt_R)'를 추가해줍니다.<br />
     '추가' 누르고 한영키 누르면 추가됩니다.<br />
     <img src="/ynu-wiki/images/ubuntu/hangul.png" width="350"/></p>
+</li>
+<li>
+<p>재부팅 후, 한글과 영문 전환이 잘 되는지 확인합니다. </p>
+</li>
+</ol>
+<h2 id="2"><h2 style="font-weight: 900;">2️⃣필요한 패키지 설치</h2></h2>
+<ol>
+<li>
+<p>VScode 설치</p>
+<ul>
+<li>
+<p>.deb 형식의 VScode를 다운받습니다.<br />
+<a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a></p>
+</li>
+<li>
+<p>Downloads 폴더로 들어가 다운받은 .deb 파일을 설치합니다.</p>
+<p><code>$ sudo dpkg -i code_xxxxx_amd64.deb</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Terminator 설치 </p>
+<pre><code>$ sudo apt update
+$ sudo apt install terminator -y
+</code></pre>
+</li>
+<li>
+<p>Chrome 설치</p>
+<ul>
+<li>Downloads 폴더로 들어가 다운받은 .deb 파일을 설치합니다.<pre><code>$ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+$ sudo apt install ./google-chrome-stable_current_amd64.deb
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Tree 설치(폴더 구조 확인용)  </p>
+<p><code>$ sudo apt install tree</code></p>
+</li>
+<li>
+<p>python, pip, git 라이브러리 설치</p>
+<pre><code>$ sudo apt update
+$ sudo apt install python3 python3-pip git -y
+</code></pre>
+<ul>
+<li>확인<pre><code>$ python3 --version
+$ pip3 --version
+$ git --version
+</code></pre>
+</li>
+</ul>
 </li>
 </ol>
 
