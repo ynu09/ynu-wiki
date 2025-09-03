@@ -456,6 +456,66 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      깃허브 연결
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Pages 배포 설정
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣웹사이트 작성
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4️⃣웹사이트 작성">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      뼈대 만들기
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      내용 만들기
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      수정한 내용 업데이트
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -589,6 +649,66 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      깃허브 연결
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Pages 배포 설정
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣웹사이트 작성
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4️⃣웹사이트 작성">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      뼈대 만들기
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      내용 만들기
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      수정한 내용 업데이트
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -657,6 +777,138 @@ $ git config -l
     user.name=ynu09
     user.email=xxxxx@gmail.com
 </code></pre>
+<h3 id="_3">깃허브 연결</h3>
+<p>프로젝트 파일에 들어가서 진행합니다. (예: $ cd ynu-wiki)<br />
+사이트 주소는 <span style="color: red;">'2️⃣GitHub 저장소 생성-Repository 만들기'</span>에서 적어둔 주소입니다. </p>
+<pre><code>$ git init 
+    # 처음 한번만 (초기세팅) 
+    # Initialized empty Git repository in /home/ymo/ynu-wiki/.git/
+$ git add . 
+    # 생성/수정한 파일들 추가
+$ git commit -m "update" 
+    # [master (root-commit) d27299a] update
+$ git branch -M master
+$ git remote add origin https://github.com/USERNAME/mysite.git 
+$ git push origin master
+</code></pre>
+<h3 id="github-pages">GitHub Pages 배포 설정</h3>
+<p>아래 명령어를 입력하면 docs 내용 빌드 및 gh-pages를 branch로 푸시합니다. </p>
+<p><code>$ mkdocs gh-deploy</code></p>
+<ul>
+<li>
+<p>적용됐는지 확인합니다. </p>
+<p><img alt="github-2" src="/ynu-wiki/images/website/github-2.png" /><br />
+<img alt="github-3" src="/ynu-wiki/images/website/github-3.png" />  </p>
+</li>
+</ul>
+<h2 id="4"><h2 style="font-weight: 900;">4️⃣웹사이트 작성</h2></h2>
+<h3 id="_4">뼈대 만들기</h3>
+<ol>
+<li>
+<p>mkdocs.yml 수정  </p>
+<p>: 목차가 생성됩니다.</p>
+<pre><code>site_name: Ynu Wiki
+site_url: https://ynu09.github.io/ynu-wiki/ # 이미지 경로 영향
+theme:
+name: material
+palette:
+    primary: 'brown'
+logo: '/ynu-wiki/images/24.png' # 로고 이미지 경로
+
+nav:
+- 홈: index.md
+- Ubuntu: 
+    - Virtual Box 세팅: ubuntu/virtual_box.md
+    - Ubuntu 세팅: ubuntu/setting.md
+- Website: website.md
+</code></pre>
+<ul>
+<li>
+<p>site_url을 지정해야 이미지 경로를 다음과 같이 작성할 수 있습니다.<br />
+예: <span style="color: red;">/ynu-wiki</span>/images/ubuntu/hangul.png</p>
+</li>
+<li>
+<p>palette-primary는 사이트 색상입니다. </p>
+</li>
+<li>logo는 사이트를 상징할 로고입니다. 이미지 경로를 지정해주면 됩니다. </li>
+<li>nav는 목차를 생성해주는 부분입니다. 각 페이지의 경로를 지정해줍니다. </li>
+</ul>
+</li>
+<li>
+<p>docs/index.md 수정 </p>
+<p>: 메인홈 내용을 작성합니다. </p>
+<pre><code># 연우의 지식창고🧠
+
+안녕하세요!  
+24년동안 모은 다양한 지식과 자료를 정리한 공간입니다👋🏻
+
+&lt;img src="/ynu-wiki/images/24.png" alt="24" width="200"/&gt;
+
+### 카테고리
+
+- Ubuntu(Virtual Box)
+- 나만의 웹사이트 제작
+
+---
+
+&gt; "지식을 기록하고 공유하면, 더 많은 아이디어와 성장으로 돌아온다"  
+&gt; "모르면 ChatGPT한테 적극적으로 물어보자"  
+&gt; – 연우
+</code></pre>
+<ul>
+<li>'#' 는 가장 큰 제목, '##'는 중간 제목, '###'는 작은 제목입니다.</li>
+<li>'---'는 구분선입니다. </li>
+<li>이미지 경로에서 'alt'는 이미지 이름이며, width로 크기를 조절할 수 있습니다. </li>
+</ul>
+</li>
+</ol>
+<h3 id="_5">내용 만들기</h3>
+<ol>
+<li>
+<p>docs 폴더 내에 모델별로 폴더를 만듭니다. </p>
+<p>예: go2, g1, z1</p>
+</li>
+<li>
+<p>각 모델 폴더별로 .md 파일을 작성합니다.</p>
+<pre><code>├── docs
+│  ├── index.md # 메인 페이지: 홈
+│  ├── g1
+│  │   ├── develop_manual.md # 개발 가이드
+│  │   ├── education.md # 납품교육 - 조종기/앱
+</code></pre>
+</li>
+</ol>
+<h3 id="_6">수정한 내용 업데이트</h3>
+<ol>
+<li>
+<p>shell script 파일 만들기</p>
+<p><code>$ nano upload.sh</code></p>
+</li>
+<li>
+<p>upload.sh 파일에 내용 입력</p>
+<pre><code>#!/bin/bash
+
+# 현재 상태 확인
+git status
+
+# 소스 코드 커밋 &amp; 푸시
+git add .
+git commit -m "update"
+git push origin master
+
+# mkdocs 웹사이트 배포
+mkdocs gh-deploy
+</code></pre>
+</li>
+<li>
+<p>권한 주기</p>
+<p><code>$ chmod +x upload.sh</code></p>
+</li>
+<li>
+<p>스크립트 실행</p>
+<p><code>$ ./upload.sh</code></p>
+</li>
+</ol>
 
 
 
