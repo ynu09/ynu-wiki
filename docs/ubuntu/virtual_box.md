@@ -55,4 +55,4 @@
 
         이후 가상화면 접속 후, '보기-가상화면1’에서 크기 조정 가능합니다.  
 
-5. Oracle VM VirtualBox에서 '시작' 버튼을 클릭하여 Ubuntu를 설치합니다.
+5. Oracle VM VirtualBox에서 '시작' 버튼을 클릭하여 Ubuntu를 설치합니다. 언어는 English를 추천합니다.
