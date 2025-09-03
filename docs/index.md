@@ -3,7 +3,7 @@
 안녕하세요!  
 24년동안 모은 다양한 지식과 자료를 정리한 공간입니다👋🏻
 
-<img src="images/24.png" alt="24" width="200"/>
+<img src="/ynu-wiki/images/24.png" alt="24" width="200"/>
 
 ### 카테고리 
 

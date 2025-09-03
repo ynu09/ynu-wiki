@@ -1,10 +1,10 @@
 site_name: Ynu Wiki
-site_url: https://ynu09.github.io/ynu-wiki/
+site_url: https://ynu09.github.io/ynu-wiki/ # 이미지 경로 영향
 theme:
   name: material
   palette:
     primary: 'brown'
-  logo: 'images/24.png' # 로고 이미지 경로
+  logo: '/ynu-wiki/images/24.png' # 로고 이미지 경로
 
 nav:
   - 홈: index.md
