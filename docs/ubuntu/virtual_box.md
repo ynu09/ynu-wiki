@@ -18,11 +18,11 @@
 
 2. Windows hosts를 클릭해서 설치 파일을 받습니다.
 
-    ![설치 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FJa7Lw%2FbtsPgBdgBGu%2FAAAAAAAAAAAAAAAAAAAAAE_FAgxUpmvCgeyWlqDmJYX4Isc556c2Mr0Reqs71e0y%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DfRRfwOmtXnV4wlA3mTNOBj%252BRH1I%253D)
+    ![VB 설치 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FJa7Lw%2FbtsPgBdgBGu%2FAAAAAAAAAAAAAAAAAAAAAE_FAgxUpmvCgeyWlqDmJYX4Isc556c2Mr0Reqs71e0y%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DfRRfwOmtXnV4wlA3mTNOBj%252BRH1I%253D)
 
 3. Virtual Box와 Extension Pack을 설치합니다. (파일 더블클릭)
 
-    ![설치 이미지2](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcBm4jT%2FbtsPgZrwNGP%2FAAAAAAAAAAAAAAAAAAAAAEmNaIzFFsXBj5Z0hWZBRG41ZLEV8cvk8sPyZvAFBmnF%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DBr7OcS4xTmljFH%252Fl%252BIKb0kRT1aU%253D)
+    ![VB 설치 이미지2](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcBm4jT%2FbtsPgZrwNGP%2FAAAAAAAAAAAAAAAAAAAAAEmNaIzFFsXBj5Z0hWZBRG41ZLEV8cvk8sPyZvAFBmnF%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1759244399%26allow_ip%3D%26allow_referer%3D%26signature%3DBr7OcS4xTmljFH%252Fl%252BIKb0kRT1aU%253D)
 
 ---
 
@@ -34,4 +34,7 @@
 
 1. '새로 만들기(N)'를 클릭합니다.
 2. 가상환경 이름을 지어주고, OS, OS Distribution, OS Version이 사진과 같이 설정됐는지 체크합니다.  
-⚠️ <span style="color: red;">가상환경 이름 작성 시, 빈칸이 없도록 합니다!</span>
+
+    ⚠️ <span style="color: red;">가상환경 이름 작성 시, 빈칸이 없도록 합니다!</span>
+
+    <img src="/ynu-wiki/images/ubuntu/install-1.png" alt="VB-Ubuntu1" width="200"/>
