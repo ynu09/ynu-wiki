@@ -1,17 +1,16 @@
-# Welcome to MkDocs
+# 연우의 지식창고🧠
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+안녕하세요!  
+24년동안 모은 다양한 지식과 자료를 정리한 공간입니다👋🏻
 
-## Commands
+<img src="images/24.png" alt="24" width="200"/>
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+### 카테고리 
 
-## Project layout
+- Ubuntu
+- 나만의 웹사이트 제작
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+---
+
+> "지식을 기록하고 공유하면, 더 많은 아이디어와 성장으로 돌아온다"  
+> – 연우

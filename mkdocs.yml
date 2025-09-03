@@ -1,1 +1,12 @@
-site_name: My Docs
+site_name: Ynu Wiki
+site_url: https://github.com/ynu09/ynu-wiki.git
+theme:
+  name: material
+  palette:
+    primary: 'brown'
+  logo: 'images/me.jpg' # 로고 이미지 경로
+
+nav:
+  - 홈: index.md
+  - Ubuntu: 
+    - Virtual Box 세팅: ubuntu/virtual_box.md
