@@ -35,7 +35,7 @@
 
 ### GitHub 처음 사용하는 경우, 토큰 생성 
 
-[https://blog.pocu.academy/ko/2022/01/06/how-to-generate-personal-access-token-for-github.html](https://blog.pocu.academy/ko/2022/01/06/how-to-generate-personal-access-token-for-github.html)
+[🔗https://blog.pocu.academy/ko/2022/01/06/how-to-generate-personal-access-token-for-github.html](https://blog.pocu.academy/ko/2022/01/06/how-to-generate-personal-access-token-for-github.html)
 
 ### Repository 만들기
 

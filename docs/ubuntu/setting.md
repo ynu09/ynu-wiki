@@ -3,7 +3,7 @@
 ## <h2 style="font-weight: 900;">1️⃣한글키 입력 활성화</h2>
 
 ### 참고 사이트
-[[Ubuntu 20.04] 우분투 한글입력 방법 (한글키 호환)](https://freeablelab.tistory.com/138) 
+[🔗[Ubuntu 20.04] 우분투 한글입력 방법 (한글키 호환)](https://freeablelab.tistory.com/138) 
 
 1. 다음 명령어를 입력하여 업그레이드 및 재부팅합니다.
 
@@ -24,7 +24,8 @@
 1. VScode 설치
 
     - .deb 형식의 VScode를 다운받습니다.  
-        [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
+        
+        [🔗https://code.visualstudio.com/download](https://code.visualstudio.com/download)
 
     - Downloads 폴더로 들어가 다운받은 .deb 파일을 설치합니다.
 
