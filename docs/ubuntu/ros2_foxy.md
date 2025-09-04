@@ -11,11 +11,17 @@
 1. foxy 설정 스크립트 소싱 
 
         $ gedit ~/.bashrc
+        
         source /opt/ros/foxy/setup.bash 추가
+        
+        $ source ~/.bashrc
 
-2. 단축키 소싱
+2. 자주 쓰는 단축키 소싱
 
         $ gedit ~/.bashrc
+        
         alias gr='gedit ~/.bashrc' 추가
         alias nr='nano ~/.bashrc' 추가
         alias sr='source ~/.bashrc' 추가
+        
+        $ source ~/.bashrc
