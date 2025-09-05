@@ -505,19 +505,36 @@ foxy
 </li>
 <li>
 <p>기본 테스트 - 노드 통신 </p>
+<p><span style="color: red;">ros2 run [패키지명] [노드명]</span> </p>
 <p><img alt="기본테스트" src="/ynu-wiki/images/ubuntu/basic_test.png" /></p>
 <ul>
-<li>노드: 독립된 프로그램</li>
-<li>publisher(talker): 보내는 자</li>
-<li>subscriber(listener): 받는 자</li>
+<li>패키지: 노드들의 묶음 </li>
+<li>
+<p>노드: 독립된 프로그램</p>
+<p><code>$ ros2 node list</code>   </p>
+<p>👉🏻 현재 실행중인 노드 확인</p>
+</li>
+<li>
+<p>publisher(talker): 정보 보내는 자</p>
+</li>
+<li>subscriber(listener): 정보 받는 자</li>
 </ul>
 </li>
 <li>
 <p>통신 방식 3가지</p>
 <ol>
-<li>Topic</li>
-<li>Service</li>
-<li>Action</li>
+<li>
+<p>Topic</p>
+<p><code>$ ros2 topic list</code></p>
+</li>
+<li>
+<p>Service</p>
+<p><code>$ ros2 service list</code></p>
+</li>
+<li>
+<p>Action</p>
+<p><code>$ ros2 action list</code></p>
+</li>
 </ol>
 </li>
 </ol>

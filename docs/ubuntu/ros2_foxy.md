@@ -82,8 +82,8 @@
 
     <img src="/ynu-wiki/images/ubuntu/turtlesim.png" width="300"/>
 
-        # 터미널1
+        # 터미널1 (프로그램 실행)
         $ ros2 run turtlesim turtlesim_node
 
-        # 터미널2
+        # 터미널2 (키보드 조작)
         $ ros2 run turtlesim turtle_teleop_key
