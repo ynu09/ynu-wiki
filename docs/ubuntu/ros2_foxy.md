@@ -58,6 +58,8 @@
 
 3. 실행
 
+    <img src="/ynu-wiki/images/ubuntu/turtlesim.png" width="300"/>
+
         # 터미널1
         $ ros2 run turtlesim turtlesim_node
 
