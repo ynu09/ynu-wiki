@@ -32,17 +32,21 @@
 
 3. 통신 방식 3가지
 
-    1. Topic
+    1. Topic(msg): publisher-subscriber
 
         ```$ ros2 topic list```
 
-    2. Service
+    2. Service(srv)
 
         ```$ ros2 service list```
 
+        - 행동 요청 ↔ 결과 반환
+
     3. Action
 
-        ```$ ros2 action list```
+        ```$ ros2 action list``` 
+        
+        - feedback 존재 
 
 ---
 
@@ -105,6 +109,10 @@
 ---
 
 ## <h2 style="font-weight: 900;">5️⃣WS/Package 만들기</h2>
+
+![package](/ynu-wiki/images/ubuntu/package.png)
+
+---
 
 1. ws 생성
 : 테스트로 workspace 이름을 'test_ws'로 지정한다. 
