@@ -12,17 +12,33 @@
 
 2. 기본 테스트 - 노드 통신 
 
-    ![기본테스트](/ynu-wiki/images/ubuntu/basic_test.png)
+    <span style="color: red;">ros2 run [패키지명] [노드명]</span> 
 
+    ![기본테스트](/ynu-wiki/images/ubuntu/basic_test.png)
+    
+    - 패키지: 노드들의 묶음 
     - 노드: 독립된 프로그램
-    - publisher(talker): 보내는 자
-    - subscriber(listener): 받는 자
+
+        ```$ ros2 node list```   
+        
+        👉🏻 현재 실행중인 노드 확인
+    
+    - publisher(talker): 정보 보내는 자
+    - subscriber(listener): 정보 받는 자
 
 3. 통신 방식 3가지
 
     1. Topic
+
+        ```$ ros2 topic list```
+
     2. Service
+
+        ```$ ros2 service list```
+
     3. Action
+
+        ```$ ros2 action list```
 
 ## <h2 style="font-weight: 900;">2️⃣bashrc 설정</h2>
 
