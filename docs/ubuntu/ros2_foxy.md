@@ -44,6 +44,8 @@
 
         ```$ ros2 action list```
 
+---
+
 ## <h2 style="font-weight: 900;">2️⃣bashrc 설정</h2>
 
 ![bashrc](/ynu-wiki/images/ubuntu/bashrc.png)
@@ -65,6 +67,8 @@
         alias sr='source ~/.bashrc' 추가
         
         $ source ~/.bashrc (적용)
+
+---
 
 ## <h2 style="font-weight: 900;">3️⃣turtlesim</h2>
 
@@ -92,9 +96,13 @@
         # 터미널2 (키보드 조작)
         $ ros2 run turtlesim turtle_teleop_key
 
+---
+
 ## <h2 style="font-weight: 900;">4️⃣rqt</h2>
 
 실행: ```$ rqt```
+
+---
 
 ## <h2 style="font-weight: 900;">5️⃣WS/Package 만들기</h2>
 
