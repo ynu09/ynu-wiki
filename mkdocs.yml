@@ -11,5 +11,5 @@ nav:
   - Ubuntu: 
     - Virtual Box 세팅: ubuntu/virtual_box.md
     - Ubuntu 세팅: ubuntu/setting.md
-    - ROS2 Foxy 설치: ubuntu/ros2_foxy.md
+    - ROS2 Foxy: ubuntu/ros2_foxy.md
   - Website: website.md

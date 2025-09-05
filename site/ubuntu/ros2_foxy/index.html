@@ -562,16 +562,22 @@ foxy
 <p>통신 방식 3가지</p>
 <ol>
 <li>
-<p>Topic</p>
+<p>Topic(msg): publisher-subscriber</p>
 <p><code>$ ros2 topic list</code></p>
 </li>
 <li>
-<p>Service</p>
+<p>Service(srv)</p>
 <p><code>$ ros2 service list</code></p>
+<ul>
+<li>행동 요청 ↔ 결과 반환</li>
+</ul>
 </li>
 <li>
 <p>Action</p>
-<p><code>$ ros2 action list</code></p>
+<p><code>$ ros2 action list</code> </p>
+<ul>
+<li>feedback 존재 </li>
+</ul>
 </li>
 </ol>
 </li>
@@ -636,6 +642,8 @@ $ ros2 run turtlesim turtle_teleop_key
 <p>실행: <code>$ rqt</code></p>
 <hr />
 <h2 id="5wspackage"><h2 style="font-weight: 900;">5️⃣WS/Package 만들기</h2></h2>
+<p><img alt="package" src="/ynu-wiki/images/ubuntu/package.png" /></p>
+<hr />
 <ol>
 <li>
 <p>ws 생성
