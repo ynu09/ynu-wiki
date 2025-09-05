@@ -57,3 +57,11 @@
             $ python3 --version
             $ pip3 --version
             $ git --version
+
+6. Gazebo 설치
+
+        $ sudo apt update
+        $ sudo apt install ros-foxy-gazebo-ros-pkgs
+
+        # 실행
+        $ gazebo
