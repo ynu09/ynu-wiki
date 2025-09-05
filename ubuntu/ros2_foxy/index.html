@@ -395,6 +395,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5wspackage" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣WS/Package 만들기
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -495,6 +504,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5wspackage" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣WS/Package 만들기
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -523,14 +541,16 @@ foxy
 </li>
 <li>
 <p>기본 테스트 - 노드 통신 </p>
-<p><span style="color: red;">ros2 run [패키지명] [노드명]</span> </p>
+<p><span style="color: red;">ros2 run [패키지명] [실행파일명]</span> </p>
 <p><img alt="기본테스트" src="/ynu-wiki/images/ubuntu/basic_test.png" /></p>
 <ul>
 <li>패키지: 노드들의 묶음 </li>
 <li>
 <p>노드: 독립된 프로그램</p>
 <p><code>$ ros2 node list</code>   </p>
-<p>👉🏻 현재 실행중인 노드 확인</p>
+<p>→ 현재 실행중인 노드 이름 확인(예: /turtlesim)</p>
+<p><code>$ ros2 node info [노드명]</code>   </p>
+<p>→ 현재 실행중인 노드 정보 확인</p>
 </li>
 <li>
 <p>publisher(talker): 정보 보내는 자</p>
@@ -610,10 +630,57 @@ $ ros2 run turtlesim turtle_teleop_key
 </li>
 </ol>
 <h2 id="4rqt"><h2 style="font-weight: 900;">4️⃣rqt</h2></h2>
+<p>실행: <code>$ rqt</code></p>
+<h2 id="5wspackage"><h2 style="font-weight: 900;">5️⃣WS/Package 만들기</h2></h2>
 <ol>
 <li>
-<p>실행</p>
-<p><code>$ rqt</code></p>
+<p>ws 생성
+: 테스트로 workspace 이름을 'test_ws'로 지정한다. </p>
+<p><code>$ mkdir -p /test_ws/src</code> </p>
+</li>
+<li>
+<p>pkg 생성</p>
+<pre><code>$ cd ~/test_ws/src
+
+# Python 
+$ ros2 pkg create --build-type ament_python &lt;package_name&gt;
+
+# C++
+$ ros2 pkg create --build-type ament_cmake &lt;package_name&gt;
+</code></pre>
+</li>
+<li>
+<p>생성한 pkg들 빌드</p>
+<ol>
+<li>
+<p>전체 빌드</p>
+<pre><code>$ cd ~/test_ws
+$ colcon build --symlink-install
+</code></pre>
+</li>
+<li>
+<p>하나의 패키지만 빌드</p>
+<pre><code>$ cd ~/test_ws
+$ colcon build --packages-select &lt;package_name&gt;
+</code></pre>
+</li>
+<li>
+<p>패키지 구성 확인</p>
+<pre><code>$ cd ~/test_ws/src/&lt;package_name&gt;
+$ ls
+    package.xml  resource  setup.cfg  setup.py  test  &lt;package_name&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>setup 파일 소싱</p>
+<pre><code>$ cd ~/test_ws
+$ ls
+    build install log src
+
+$ source install/setup.bash
+</code></pre>
 </li>
 </ol>
 
