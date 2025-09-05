@@ -79,7 +79,9 @@
 
 ---
 
-## <h2 style="font-weight: 900;">3️⃣turtlesim</h2>
+## <h2 style="font-weight: 900;">3️⃣turtlesim/rqt</h2>
+
+### turtlesim
 
 1. turtlesim 설치 (ROS2 설치 시 이미 설치됐을 수 있음)
 
@@ -105,15 +107,13 @@
         # 터미널2 (키보드 조작)
         $ ros2 run turtlesim turtle_teleop_key
 
----
-
-## <h2 style="font-weight: 900;">4️⃣rqt</h2>
+### rqt
 
 실행: ```$ rqt```
 
 ---
 
-## <h2 style="font-weight: 900;">5️⃣WS/Package 만들기</h2>
+## <h2 style="font-weight: 900;">4️⃣WS/Package 만들기</h2>
 
 ![package](/ynu-wiki/images/ubuntu/package.png)
 
