@@ -42,7 +42,7 @@
 
         - 행동 요청 ↔ 결과 반환
 
-    3. Action
+    3. Action(action)
 
         ```$ ros2 action list``` 
         
