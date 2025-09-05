@@ -48,6 +48,11 @@
         
         - feedback 존재 
 
+4. ROS Domain ID
+
+    : 같은 ID끼리만 서로 통신을 주고받을 수 있음. (0~232까지의 값) 
+    ![domain_id](/ynu-wiki/images/ubuntu/domain_id.png)
+
 ---
 
 ## <h2 style="font-weight: 900;">2️⃣bashrc 설정</h2>
