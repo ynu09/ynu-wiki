@@ -18,6 +18,12 @@
     - publisher(talker): 보내는 자
     - subscriber(listener): 받는 자
 
+3. 통신 방식 3가지
+
+    1. Topic
+    2. Service
+    3. Action
+
 ## <h2 style="font-weight: 900;">2️⃣bashrc 설정</h2>
 
 ![bashrc](/ynu-wiki/images/ubuntu/bashrc.png)
