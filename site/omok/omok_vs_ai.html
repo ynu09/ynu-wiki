@@ -93,52 +93,67 @@ function countConnected(x,y,player){
 
 // AI 수 선택
 function aiMove(){
-  let bestScore=-Infinity;
-  let move=null;
-  for(let y=0;y<size;y++){
-    for(let x=0;x<size;x++){
-      if(boardState[y][x]===''){
-        let score=evaluate(x,y,'○');
-        if(score>bestScore){ bestScore=score; move={x,y}; }
+  let bestScore = -Infinity;
+  let move = null;
+  for(let y = 0; y < size; y++){
+    for(let x = 0; x < size; x++){
+      if(boardState[y][x] === ''){
+        let score = evaluate(x, y, '○');
+        if(score > bestScore){
+          bestScore = score;
+          move = {x, y};
+        }
       }
     }
   }
+
   if(move){
-    boardState[move.y][move.x]='○';
-    board.rows[move.y].cells[move.x].textContent='○';
-    if(checkWin(move.x,move.y,'○')){
-      alert("○ 승리!");
-      resetBoard();
+    boardState[move.y][move.x] = '○';
+    board.rows[move.y].cells[move.x].textContent = '○'; // 먼저 돌 표시
+
+    // 승리 체크를 조금 늦게 실행
+    if(checkWin(move.x, move.y, '○')){
+      setTimeout(()=>{
+        alert("○ 승리!");
+        resetBoard();
+      }, 50); // 50ms 딜레이
       return;
     }
-    turn='●';
-    turnDisplay.textContent=turn;
+
+    turn = '●';
+    turnDisplay.textContent = turn;
   }
 }
 
 // 보드 생성
-for(let y=0;y<size;y++){
-  let tr=document.createElement('tr');
-  for(let x=0;x<size;x++){
-    let td=document.createElement('td');
-    td.addEventListener('click',()=>{
-      if(boardState[y][x]==='' && turn==='●'){
-        boardState[y][x]='●';
-        td.textContent='●';
-        if(checkWin(x,y,'●')){
-          alert("● 승리!");
-          resetBoard();
+for(let y = 0; y < size; y++){
+  let tr = document.createElement('tr');
+  for(let x = 0; x < size; x++){
+    let td = document.createElement('td');
+    td.addEventListener('click', ()=>{
+      if(boardState[y][x] === '' && turn === '●'){
+        boardState[y][x] = '●';
+        td.textContent = '●'; // 화면에 먼저 표시
+
+        // 승리 체크를 조금 늦게 실행
+        if(checkWin(x, y, '●')){
+          setTimeout(()=>{
+            alert("● 승리!");
+            resetBoard();
+          }, 50); // 50ms 딜레이
           return;
         }
-        turn='○';
-        turnDisplay.textContent=turn;
-        setTimeout(aiMove,200);
+
+        turn = '○';
+        turnDisplay.textContent = turn;
+        setTimeout(aiMove, 200);
       }
     });
     tr.appendChild(td);
   }
   board.appendChild(tr);
 }
+
 </script>
 </body>
 </html>
