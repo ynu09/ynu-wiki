@@ -25,18 +25,28 @@ let turn = '●'; // 플레이어
 // 보드 상태 초기화
 let boardState = Array.from({length:size},()=>Array(size).fill(''));
 
-// 승리 체크 함수
+// 승리 체크 함수 (정확히 5목 이상)
 function checkWin(x, y, player) {
-  const dirs = [[[1,0],[-1,0]],[[0,1],[0,-1]],[[1,1],[-1,-1]],[[1,-1],[-1,1]]];
-  for (let dir of dirs){
-    let count=1;
-    for (let d of dir){
-      let nx=x+d[0], ny=y+d[1];
-      while(nx>=0 && ny>=0 && nx<size && ny<size && boardState[ny][nx]===player){
-        count++; nx+=d[0]; ny+=d[1];
+  const dirs = [
+    [[1,0],[-1,0]], // 가로
+    [[0,1],[0,-1]], // 세로
+    [[1,1],[-1,-1]], // ↘ 대각선
+    [[1,-1],[-1,1]]  // ↗ 대각선
+  ];
+
+  for (let dir of dirs) {
+    let count = 1;
+
+    for (let d of dir) {
+      let nx = x + d[0], ny = y + d[1];
+      while (nx >= 0 && ny >= 0 && nx < size && ny < size && boardState[ny][nx] === player) {
+        count++;
+        nx += d[0];
+        ny += d[1];
       }
     }
-    if(count>=5) return true;
+
+    if (count >= 5) return true; // 5목 이상 승리
   }
   return false;
 }
@@ -55,7 +65,6 @@ function resetBoard(){
 
 // 간단 점수 함수
 function evaluate(x,y,player){
-  // 단순화: 자기 돌 4목 -> 1000, 3목 -> 100, 플레이어 4목 -> 900, 3목 -> 90
   const opp = (player==='●')?'○':'●';
   let score=0;
   if(countConnected(x,y,player)>=4) score+=1000;
@@ -113,7 +122,7 @@ for(let y=0;y<size;y++){
   for(let x=0;x<size;x++){
     let td=document.createElement('td');
     td.addEventListener('click',()=>{
-      if(boardState[y][x]===''){
+      if(boardState[y][x]==='' && turn==='●'){
         boardState[y][x]='●';
         td.textContent='●';
         if(checkWin(x,y,'●')){
