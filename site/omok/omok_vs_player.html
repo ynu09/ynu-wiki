@@ -4,73 +4,124 @@
   <meta charset="UTF-8">
   <title>Omok Game</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
-    table { border-collapse: collapse; margin: 0 auto; }
-    td { width: 30px; height: 30px; border: 1px solid black; text-align: center; vertical-align: middle; font-size: 24px; cursor: pointer; }
-    td:hover { background-color: #f0f0f0; }
-    h2 { margin-bottom: 20px; }
+    body { 
+      font-family: Arial, sans-serif; 
+      text-align: center; 
+      margin: 20px; 
+      background-color: #deb887; /* 바둑판 배경 */
+    }
+    table { 
+      border-collapse: collapse; 
+      margin: 20px auto; 
+      background-color: #f5deb3; /* 오목판 색 */
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+    }
+    td { 
+      width: 40px; 
+      height: 40px; 
+      border: 1px solid #333; 
+      position: relative; 
+      cursor: pointer;
+    }
+    .stone {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin: auto;
+      margin-top: 4px;
+      box-shadow: inset -2px -2px 4px rgba(0,0,0,0.6),
+                  inset 2px 2px 4px rgba(255,255,255,0.6);
+    }
+    .black { background-color: black; }
+    .white { background-color: white; }
+    td.highlight { background-color: #7fe5f0; }
+    #turnDisplay { font-size: 20px; font-weight: bold; }
+    #title { font-size: 26px; margin-bottom: 15px; }
   </style>
 </head>
 <body>
-  <h2>오목 게임</h2>
+  <h1 id="title">오목 게임 (2인용)</h1>
+  <div>현재 턴: <span id="turnDisplay">●</span></div>
   <table id="board"></table>
-  <p>턴: <span id="turn">●</span></p>
 
   <script>
-    const size = 10; // 보드 크기
+    const size = 10;
     const board = document.getElementById('board');
-    const turnDisplay = document.getElementById('turn');
+    const turnDisplay = document.getElementById('turnDisplay');
     let turn = '●';
+    let lastMoveCell = null;
 
-    function checkWin(x, y, player) {
-      const directions = [
-        [[1,0],[-1,0]], // 가로
-        [[0,1],[0,-1]], // 세로
-        [[1,1],[-1,-1]], // 대각선 \
-        [[1,-1],[-1,1]] // 대각선 /
-      ];
+    function resetBoard(){
+      board.innerHTML = '';
+      turn = '●';
+      turnDisplay.textContent = turn;
+      lastMoveCell = null;
+      createBoard();
+    }
 
-      for (let dir of directions) {
-        let count = 1;
-        for (let d of dir) {
-          let nx = x + d[0], ny = y + d[1];
-          while(nx >=0 && ny>=0 && nx<size && ny<size && board.rows[ny].cells[nx].textContent === player){
+    function checkWin(x, y, stone){
+      const directions=[[1,0],[0,1],[1,1],[1,-1]];
+      for(const [dx,dy] of directions){
+        let count=1;
+        for(let dir=-1;dir<=1;dir+=2){
+          let nx=x, ny=y;
+          while(true){
+            nx += dx*dir; ny += dy*dir;
+            if(nx<0 || ny<0 || nx>=size || ny>=size) break;
+            const cell = board.rows[ny].cells[nx];
+            if(!cell.firstChild || (cell.firstChild.classList.contains('black') && stone==='○') || (cell.firstChild.classList.contains('white') && stone==='●')) break;
             count++;
-            nx += d[0]; ny += d[1];
           }
         }
-        if(count >= 5) return true;
+        if(count >=5) return true;
       }
       return false;
     }
 
-    for(let y=0;y<size;y++){
-      let tr = document.createElement('tr');
-      for(let x=0;x<size;x++){
-        let td = document.createElement('td');
-        td.addEventListener('click',()=>{
-          if(td.textContent===''){
-            td.textContent = turn;
-            if(checkWin(x,y,turn)){
-              alert(turn + " 승리!");
-              // 게임 초기화
-              for(let r=0;r<size;r++){
-                for(let c=0;c<size;c++){
-                  board.rows[r].cells[c].textContent='';
-                }
-              }
-              turn='●';
-              turnDisplay.textContent = turn;
-              return;
-            }
-            turn = (turn==='●')?'○':'●';
-            turnDisplay.textContent = turn;
-          }
-        });
-        tr.appendChild(td);
+    function highlightMove(cell){
+      if(lastMoveCell){
+        lastMoveCell.classList.remove('highlight');
       }
-      board.appendChild(tr);
+      cell.classList.add('highlight');
+      lastMoveCell = cell;
     }
+
+    function placeStone(cell, color){
+      cell.innerHTML = '';
+      const stone = document.createElement('div');
+      stone.classList.add('stone', color);
+      cell.appendChild(stone);
+    }
+
+    function createBoard(){
+      for(let y=0;y<size;y++){
+        const tr = document.createElement('tr');
+        for(let x=0;x<size;x++){
+          const td = document.createElement('td');
+          td.addEventListener('click', ()=>{
+            if(!td.firstChild){
+              placeStone(td, turn==='●' ? 'black' : 'white');
+              highlightMove(td);
+
+              if(checkWin(x, y, turn)){
+                setTimeout(()=>{
+                  alert(turn + " 승리!");
+                  resetBoard();
+                },100);
+                return;
+              }
+
+              turn = turn==='●' ? '○' : '●';
+              turnDisplay.textContent = turn;
+            }
+          });
+          tr.appendChild(td);
+        }
+        board.appendChild(tr);
+      }
+    }
+
+    createBoard();
   </script>
 </body>
 </html>
