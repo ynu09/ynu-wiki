@@ -9,6 +9,11 @@ table { border-collapse: collapse; margin: 0 auto; }
 td { width: 30px; height: 30px; border: 1px solid black; text-align: center; vertical-align: middle; font-size: 24px; cursor: pointer; }
 td:hover { background-color: #f0f0f0; }
 h2 { margin-bottom: 20px; }
+
+/* 방금 둔 수 강조 */
+.highlight {
+  background-color: yellow;
+}
 </style>
 </head>
 <body>
@@ -21,6 +26,7 @@ const size = 10;
 const board = document.getElementById('board');
 const turnDisplay = document.getElementById('turn');
 let turn = '●'; // 플레이어
+let lastMove = null; // 마지막 둔 위치 저장
 
 // 보드 상태 초기화
 let boardState = Array.from({length:size},()=>Array(size).fill(''));
@@ -57,10 +63,12 @@ function resetBoard(){
     for(let x=0;x<size;x++){
       boardState[y][x]='';
       board.rows[y].cells[x].textContent='';
+      board.rows[y].cells[x].classList.remove('highlight');
     }
   }
   turn='●';
   turnDisplay.textContent = turn;
+  lastMove = null;
 }
 
 // 간단 점수 함수
@@ -108,10 +116,16 @@ function aiMove(){
   }
 
   if(move){
-    boardState[move.y][move.x] = '○';
-    board.rows[move.y].cells[move.x].textContent = '○'; // 먼저 돌 표시
+    // 이전 강조 제거
+    if(lastMove){
+      board.rows[lastMove.y].cells[lastMove.x].classList.remove('highlight');
+    }
 
-    // 승리 체크를 조금 늦게 실행
+    boardState[move.y][move.x] = '○';
+    board.rows[move.y].cells[move.x].textContent = '○';
+    board.rows[move.y].cells[move.x].classList.add('highlight'); // 강조 추가
+    lastMove = {x: move.x, y: move.y};
+
     if(checkWin(move.x, move.y, '○')){
       setTimeout(()=>{
         alert("○ 승리!");
@@ -132,10 +146,16 @@ for(let y = 0; y < size; y++){
     let td = document.createElement('td');
     td.addEventListener('click', ()=>{
       if(boardState[y][x] === '' && turn === '●'){
-        boardState[y][x] = '●';
-        td.textContent = '●'; // 화면에 먼저 표시
+        // 이전 강조 제거
+        if(lastMove){
+          board.rows[lastMove.y].cells[lastMove.x].classList.remove('highlight');
+        }
 
-        // 승리 체크를 조금 늦게 실행
+        boardState[y][x] = '●';
+        td.textContent = '●';
+        td.classList.add('highlight'); // 강조 추가
+        lastMove = {x, y};
+
         if(checkWin(x, y, '●')){
           setTimeout(()=>{
             alert("● 승리!");
@@ -153,7 +173,6 @@ for(let y = 0; y < size; y++){
   }
   board.appendChild(tr);
 }
-
 </script>
 </body>
 </html>
