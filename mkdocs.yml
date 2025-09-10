@@ -15,4 +15,4 @@ nav:
   - Website: website.md
   - 오목 게임: 
     - 같이 플레이: omok/omok_vs_player.html
-    - 혼자 플레이 (vs 컴퓨터): omok/omok_vs_comp.html
+    - 혼자 플레이 (vs AI): omok/omok_vs_ai.html
