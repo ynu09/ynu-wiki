@@ -34,20 +34,13 @@
     }
     .black { background-color: black; }
     .white { background-color: white; }
-    td.highlight { background-color: rgb(19, 172, 139); }
+    td.highlight { background-color: #7fe5f0; }
     #turnDisplay { font-size: 20px; font-weight: bold; }
+    #title { font-size: 26px; margin-bottom: 15px; }
   </style>
 </head>
 <body>
   <h1 id="title">오목 게임 (1인 vs AI)</h1>
-  
-  <style>
-  #title {
-    font-size: 26px;  /* 글자 크기 줄이기 */
-    margin-bottom: 15px;
-  }
-  </style>
-  
   <div>현재 턴: <span id="turnDisplay">●</span></div>
   <table id="board"></table>
 
@@ -85,8 +78,38 @@
       return false;
     }
 
-    function evaluate(x,y,stone){
-      return Math.random(); 
+    // 연결된 돌 수 계산
+    function countConnected(x, y, stone){
+      const directions=[[1,0],[0,1],[1,1],[1,-1]];
+      let maxCount=0;
+      for(const [dx,dy] of directions){
+        let count=1;
+        for(let dir=-1;dir<=1;dir+=2){
+          let nx=x, ny=y;
+          while(true){
+            nx+=dx*dir; ny+=dy*dir;
+            if(nx<0||ny<0||nx>=size||ny>=size||boardState[ny][nx]!==stone) break;
+            count++;
+          }
+        }
+        if(count>maxCount) maxCount=count;
+      }
+      return maxCount;
+    }
+
+    // 점수 평가 함수
+    function evaluate(x, y, stone){
+      const opponent = (stone==='○') ? '●' : '○';
+      let myCount = countConnected(x, y, stone);
+      let oppCount = countConnected(x, y, opponent);
+      
+      if(myCount >= 4) return 10000;  // 5목 가능
+      if(oppCount >= 4) return 9000;  // 상대 5목 막기
+      if(myCount === 3) return 500;   // 내 4목 가능
+      if(oppCount === 3) return 400;  // 상대 4목 막기
+      if(myCount === 2) return 50;    // 내 3목 가능
+      if(oppCount === 2) return 40;   // 상대 3목 막기
+      return 1;                        // 기본 점수
     }
 
     function aiMove(){
@@ -95,7 +118,10 @@
         for(let x=0;x<size;x++){
           if(boardState[y][x]===''){
             let score=evaluate(x,y,'○');
-            if(score>bestScore){ bestScore=score; move={x,y}; }
+            if(score>bestScore){
+              bestScore=score;
+              move={x,y};
+            }
           }
         }
       }
@@ -105,7 +131,7 @@
         placeStone(cell,'white');
         highlightMove(cell);
 
-        if(checkWin(move.x,move.y,'○')){
+        if(checkWin(move.x, move.y,'○')){
           setTimeout(()=>{ 
             alert("○ 승리!");
             resetBoard(); 
