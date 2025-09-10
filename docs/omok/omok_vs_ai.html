@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Omok vs AI</title>
+<style>
+body { font-family: Arial; text-align: center; margin: 20px; }
+table { border-collapse: collapse; margin: 0 auto; }
+td { width: 30px; height: 30px; border: 1px solid black; text-align: center; vertical-align: middle; font-size: 24px; cursor: pointer; }
+td:hover { background-color: #f0f0f0; }
+h2 { margin-bottom: 20px; }
+</style>
+</head>
+<body>
+<h2>오목 게임 (1인 vs AI)</h2>
+<table id="board"></table>
+<p>턴: <span id="turn">●</span></p>
+
+<script>
+const size = 10;
+const board = document.getElementById('board');
+const turnDisplay = document.getElementById('turn');
+let turn = '●'; // 플레이어
+
+// 보드 상태 초기화
+let boardState = Array.from({length:size},()=>Array(size).fill(''));
+
+// 승리 체크 함수
+function checkWin(x, y, player) {
+  const dirs = [[[1,0],[-1,0]],[[0,1],[0,-1]],[[1,1],[-1,-1]],[[1,-1],[-1,1]]];
+  for (let dir of dirs){
+    let count=1;
+    for (let d of dir){
+      let nx=x+d[0], ny=y+d[1];
+      while(nx>=0 && ny>=0 && nx<size && ny<size && boardState[ny][nx]===player){
+        count++; nx+=d[0]; ny+=d[1];
+      }
+    }
+    if(count>=5) return true;
+  }
+  return false;
+}
+
+// 보드 초기화
+function resetBoard(){
+  for(let y=0;y<size;y++){
+    for(let x=0;x<size;x++){
+      boardState[y][x]='';
+      board.rows[y].cells[x].textContent='';
+    }
+  }
+  turn='●';
+  turnDisplay.textContent = turn;
+}
+
+// 간단 점수 함수
+function evaluate(x,y,player){
+  // 단순화: 자기 돌 4목 -> 1000, 3목 -> 100, 플레이어 4목 -> 900, 3목 -> 90
+  const opp = (player==='●')?'○':'●';
+  let score=0;
+  if(countConnected(x,y,player)>=4) score+=1000;
+  else if(countConnected(x,y,player)===3) score+=100;
+  if(countConnected(x,y,opp)>=4) score+=900;
+  else if(countConnected(x,y,opp)===3) score+=90;
+  return score;
+}
+
+// 연결된 돌 개수 계산
+function countConnected(x,y,player){
+  let maxCount=0;
+  const dirs=[[[1,0],[-1,0]],[[0,1],[0,-1]],[[1,1],[-1,-1]],[[1,-1],[-1,1]]];
+  for(let dir of dirs){
+    let count=1;
+    for(let d of dir){
+      let nx=x+d[0], ny=y+d[1];
+      while(nx>=0 && ny>=0 && nx<size && ny<size && boardState[ny][nx]===player){
+        count++; nx+=d[0]; ny+=d[1];
+      }
+    }
+    if(count>maxCount) maxCount=count;
+  }
+  return maxCount;
+}
+
+// AI 수 선택
+function aiMove(){
+  let bestScore=-Infinity;
+  let move=null;
+  for(let y=0;y<size;y++){
+    for(let x=0;x<size;x++){
+      if(boardState[y][x]===''){
+        let score=evaluate(x,y,'○');
+        if(score>bestScore){ bestScore=score; move={x,y}; }
+      }
+    }
+  }
+  if(move){
+    boardState[move.y][move.x]='○';
+    board.rows[move.y].cells[move.x].textContent='○';
+    if(checkWin(move.x,move.y,'○')){
+      alert("○ 승리!");
+      resetBoard();
+      return;
+    }
+    turn='●';
+    turnDisplay.textContent=turn;
+  }
+}
+
+// 보드 생성
+for(let y=0;y<size;y++){
+  let tr=document.createElement('tr');
+  for(let x=0;x<size;x++){
+    let td=document.createElement('td');
+    td.addEventListener('click',()=>{
+      if(boardState[y][x]===''){
+        boardState[y][x]='●';
+        td.textContent='●';
+        if(checkWin(x,y,'●')){
+          alert("● 승리!");
+          resetBoard();
+          return;
+        }
+        turn='○';
+        turnDisplay.textContent=turn;
+        setTimeout(aiMove,200);
+      }
+    });
+    tr.appendChild(td);
+  }
+  board.appendChild(tr);
+}
+</script>
+</body>
+</html>

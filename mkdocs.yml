@@ -13,4 +13,6 @@ nav:
     - Ubuntu 세팅: ubuntu/setting.md
     - ROS2 Foxy: ubuntu/ros2_foxy.md
   - Website: website.md
-  - 오목 게임: omok.html
+  - 오목 게임: 
+    - 같이 플레이: omok/omok_vs_player.html
+    - 혼자 플레이 (vs 컴퓨터): omok/omok_vs_comp.html
