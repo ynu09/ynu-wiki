@@ -1,0 +1,26 @@
+[0.496s] Invoking command in '/home/ymo/ros2_ws/build/topic_pkg': PYTHONPATH=/home/ymo/ros2_ws/build/topic_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ymo/ros2_ws/install/topic_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ymo/ros2_ws/build/topic_pkg/build --no-deps symlink_data
+[0.605s] running develop
+[0.660s] running egg_info
+[0.660s] creating topic_pkg.egg-info
+[0.660s] writing topic_pkg.egg-info/PKG-INFO
+[0.660s] writing dependency_links to topic_pkg.egg-info/dependency_links.txt
+[0.660s] writing entry points to topic_pkg.egg-info/entry_points.txt
+[0.660s] writing requirements to topic_pkg.egg-info/requires.txt
+[0.660s] writing top-level names to topic_pkg.egg-info/top_level.txt
+[0.667s] writing manifest file 'topic_pkg.egg-info/SOURCES.txt'
+[0.687s] reading manifest file 'topic_pkg.egg-info/SOURCES.txt'
+[0.687s] writing manifest file 'topic_pkg.egg-info/SOURCES.txt'
+[0.706s] running build_ext
+[0.707s] Creating /home/ymo/ros2_ws/install/topic_pkg/lib/python3.8/site-packages/site.py
+[0.708s] Creating /home/ymo/ros2_ws/install/topic_pkg/lib/python3.8/site-packages/topic-pkg.egg-link (link to .)
+[0.708s] Installing publisher script to /home/ymo/ros2_ws/install/topic_pkg/lib/topic_pkg
+[0.708s] Installing subscriber script to /home/ymo/ros2_ws/install/topic_pkg/lib/topic_pkg
+[0.708s] 
+[0.709s] Installed /home/ymo/ros2_ws/build/topic_pkg
+[0.709s] running symlink_data
+[0.709s] creating /home/ymo/ros2_ws/install/topic_pkg/share/ament_index
+[0.709s] creating /home/ymo/ros2_ws/install/topic_pkg/share/ament_index/resource_index
+[0.709s] creating /home/ymo/ros2_ws/install/topic_pkg/share/ament_index/resource_index/packages
+[0.709s] symbolically linking /home/ymo/ros2_ws/build/topic_pkg/resource/topic_pkg -> /home/ymo/ros2_ws/install/topic_pkg/share/ament_index/resource_index/packages
+[0.709s] symbolically linking /home/ymo/ros2_ws/build/topic_pkg/package.xml -> /home/ymo/ros2_ws/install/topic_pkg/share/topic_pkg
+[0.725s] Invoked command in '/home/ymo/ros2_ws/build/topic_pkg' returned '0': PYTHONPATH=/home/ymo/ros2_ws/build/topic_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ymo/ros2_ws/install/topic_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ymo/ros2_ws/build/topic_pkg/build --no-deps symlink_data

@@ -1,0 +1,24 @@
+running develop
+running egg_info
+creating topic_pkg.egg-info
+writing topic_pkg.egg-info/PKG-INFO
+writing dependency_links to topic_pkg.egg-info/dependency_links.txt
+writing entry points to topic_pkg.egg-info/entry_points.txt
+writing requirements to topic_pkg.egg-info/requires.txt
+writing top-level names to topic_pkg.egg-info/top_level.txt
+writing manifest file 'topic_pkg.egg-info/SOURCES.txt'
+reading manifest file 'topic_pkg.egg-info/SOURCES.txt'
+writing manifest file 'topic_pkg.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/ymo/ros2_ws/install/topic_pkg/lib/python3.8/site-packages/site.py
+Creating /home/ymo/ros2_ws/install/topic_pkg/lib/python3.8/site-packages/topic-pkg.egg-link (link to .)
+Installing publisher script to /home/ymo/ros2_ws/install/topic_pkg/lib/topic_pkg
+Installing subscriber script to /home/ymo/ros2_ws/install/topic_pkg/lib/topic_pkg
+
+Installed /home/ymo/ros2_ws/build/topic_pkg
+running symlink_data
+creating /home/ymo/ros2_ws/install/topic_pkg/share/ament_index
+creating /home/ymo/ros2_ws/install/topic_pkg/share/ament_index/resource_index
+creating /home/ymo/ros2_ws/install/topic_pkg/share/ament_index/resource_index/packages
+symbolically linking /home/ymo/ros2_ws/build/topic_pkg/resource/topic_pkg -> /home/ymo/ros2_ws/install/topic_pkg/share/ament_index/resource_index/packages
+symbolically linking /home/ymo/ros2_ws/build/topic_pkg/package.xml -> /home/ymo/ros2_ws/install/topic_pkg/share/topic_pkg
