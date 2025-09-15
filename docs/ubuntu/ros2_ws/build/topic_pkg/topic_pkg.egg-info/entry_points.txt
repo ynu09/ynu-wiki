@@ -1,4 +1,0 @@
-[console_scripts]
-publisher = topic_pkg.topic_publisher:main
-subscriber = topic_pkg.topic_subscriber:main
-
