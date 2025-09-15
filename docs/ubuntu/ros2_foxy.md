@@ -132,38 +132,15 @@
         $ ros2 pkg create <package_name> --build-type ament_python --dependencies rclpy std_msgs
 
         # C++
-        $ ros2 pkg create --build-type ament_cmake <package_name>
+        $ ros2 pkg create <package_name> --build-type ament_cmake
 
-3. 생성한 pkg들 빌드
+    - ament_python: python용 빌드 도구
+    - rclpy: python ros2 클라이언트
+    - std_msgs: topic 메시지 표준 패키지
 
-    1. 전체 빌드
+3. 노드 작성
 
-            $ cd ~/ros2_ws
-            $ colcon build --symlink-install 
-    
-    2. 하나의 패키지만 빌드
-
-            $ cd ~/ros2_ws
-            $ colcon build --packages-select <package_name>
-
-    3. 패키지 구성 확인
-
-            $ cd ~/ros2_ws/src/<package_name>
-            $ ls
-                package.xml  resource  setup.cfg  setup.py  test  <package_name>
-
-4. setup 파일 소싱
-
-        $ cd ~/ros2_ws
-        $ ls
-            build install log src
-        
-        $ source install/setup.bash
-
-
-5. 노드 작성
-
-    1. topic_publisher.py
+    1. topic_publisher.py (경로: /ros2_ws/src/topic_pkg/topic_pkg/topic_publisher.py)
 
             import rclpy
             from rclpy.node import Node
@@ -186,11 +163,15 @@
             def main():
                 rclpy.init()
                 node = Publisher()
-                rclpy.spin(node)
-                node.destroy_node()
-                rclpy.shutdown()
+                try:
+                    rclpy.spin(node)
+                except KeyboardInterrupt:
+                    pass # Ctrl+c 무시
+                finally:
+                    node.destroy_node()
+                    rclpy.shutdown()
 
-    2. topic_subscriber.py
+    2. topic_subscriber.py (경로: /ros2_ws/src/topic_pkg/topic_pkg/topic_subscriber.py)
 
             import rclpy
             from rclpy.node import Node
@@ -212,9 +193,13 @@
             def main():
                 rclpy.init()
                 node = Subscriber()
-                rclpy.spin(node)
-                node.destroy_node()
-                rclpy.shutdown()
+                try:
+                    rclpy.spin(node)
+                except KeyboardInterrupt:
+                    pass # Ctrl+c 무시
+                finally:
+                    node.destroy_node()
+                    rclpy.shutdown()
 
     3. setup.py
 
@@ -225,11 +210,34 @@
                 ],
             },
 
-6. 실행
+4. 생성한 pkg들 빌드
+
+    1. 전체 빌드
+
+            $ cd ~/ros2_ws
+            $ colcon build --symlink-install 
+    
+    2. 하나의 패키지만 빌드
+
+            $ cd ~/ros2_ws
+            $ colcon build --packages-select <package_name>
+
+    3. 패키지 구성 확인
+
+            $ cd ~/ros2_ws/src/<package_name>
+            $ ls
+                package.xml  resource  setup.cfg  setup.py  test  <package_name>
+        <img src="/ynu-wiki/images/ubuntu/ros-1.png" width="350"/>
+
+5. setup 파일 소싱
 
         $ cd ~/ros2_ws
-        $ colcon build --symlink-install
+        $ ls
+            build install log src
+        
         $ source install/setup.bash
+
+6. 실행
 
         # 터미널1
         ros2 run <package_name> publisher
