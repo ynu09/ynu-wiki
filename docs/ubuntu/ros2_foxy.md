@@ -120,16 +120,16 @@
 ---
 
 1. ws 생성
-: 테스트로 workspace 이름을 'test_ws'로 지정한다. 
+: 테스트로 workspace 이름을 'ros2_ws'로 지정한다. 
 
-    ```$ mkdir -p /test_ws/src``` 
+    ```$ mkdir -p ~/ros2_ws/src``` 
 
 2. pkg 생성
 
-        $ cd ~/test_ws/src
+        $ cd ~/ros2_ws/src
         
         # Python 
-        $ ros2 pkg create --build-type ament_python <package_name>
+        $ ros2 pkg create <package_name> --build-type ament_python --dependencies rclpy std_msgs
 
         # C++
         $ ros2 pkg create --build-type ament_cmake <package_name>
@@ -138,24 +138,101 @@
 
     1. 전체 빌드
 
-            $ cd ~/test_ws
+            $ cd ~/ros2_ws
             $ colcon build --symlink-install 
     
     2. 하나의 패키지만 빌드
 
-            $ cd ~/test_ws
+            $ cd ~/ros2_ws
             $ colcon build --packages-select <package_name>
 
     3. 패키지 구성 확인
 
-            $ cd ~/test_ws/src/<package_name>
+            $ cd ~/ros2_ws/src/<package_name>
             $ ls
                 package.xml  resource  setup.cfg  setup.py  test  <package_name>
 
 4. setup 파일 소싱
 
-        $ cd ~/test_ws
+        $ cd ~/ros2_ws
         $ ls
             build install log src
         
         $ source install/setup.bash
+
+
+5. 노드 작성
+
+    1. topic_publisher.py
+
+            import rclpy
+            from rclpy.node import Node
+            from std_msgs.msg import String
+
+            class Publisher(Node):
+                def __init__(self):
+                    super().__init__('publisher')
+                    self.publisher_ = self.create_publisher(String, 'topic', 10)
+                    self.timer = self.create_timer(1.0, self.timer_callback)
+                    self.i = 0
+
+                def timer_callback(self):
+                    msg = String()
+                    msg.data = f'Hello ROS2 {self.i}'
+                    self.publisher_.publish(msg)
+                    self.get_logger().info(f'Publishing: "{msg.data}"')
+                    self.i += 1
+
+            def main():
+                rclpy.init()
+                node = Publisher()
+                rclpy.spin(node)
+                node.destroy_node()
+                rclpy.shutdown()
+
+    2. topic_subscriber.py
+
+            import rclpy
+            from rclpy.node import Node
+            from std_msgs.msg import String
+
+            class Subscriber(Node):
+                def __init__(self):
+                    super().__init__('subscriber')
+                    self.subscription = self.create_subscription(
+                        String,
+                        'topic',
+                        self.listener_callback,
+                        10)
+                    self.subscription
+
+                def listener_callback(self, msg):
+                    self.get_logger().info(f'I heard: "{msg.data}"')
+
+            def main():
+                rclpy.init()
+                node = Subscriber()
+                rclpy.spin(node)
+                node.destroy_node()
+                rclpy.shutdown()
+
+    3. setup.py
+
+            entry_points={
+                'console_scripts': [
+                    'publisher = <package_name>.topic_publisher:main',
+                    'subscriber = <package_name>.topic_subscriber:main',
+                ],
+            },
+
+6. 실행
+
+        $ cd ~/ros2_ws
+        $ colcon build --symlink-install
+        $ source install/setup.bash
+
+        # 터미널1
+        ros2 run <package_name> publisher
+
+        # 터미널2
+        ros2 run <package_name> subscriber
