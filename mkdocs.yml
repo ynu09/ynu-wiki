@@ -17,3 +17,4 @@ nav:
     - 같이 플레이: omok/omok_vs_player.html
     - 혼자 플레이 (vs AI): omok/omok_vs_ai.html
   - Hangman 게임: hangman.html
+  - 바운스볼 게임: bounceball.html
